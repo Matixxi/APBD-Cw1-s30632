@@ -1,6 +1,9 @@
-﻿namespace zadanies30632.Models;
+﻿
+
+namespace zadanies30632.Models;
 
 public class Rental
 {
+   
     
 }
