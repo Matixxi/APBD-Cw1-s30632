@@ -122,7 +122,10 @@ namespace zadanies30632.Services
             List<Rental> result = new List<Rental>();
             foreach (var r in _rentals)
             {
-                if (r.User.Id == userId && !r.IsReturned()) result.Add(r);
+                if (r.User.Id == userId && !r.IsReturned())
+                {
+                    result.Add(r);
+                }
             }
             return result;
         }
@@ -132,7 +135,10 @@ namespace zadanies30632.Services
             List<Rental> result = new List<Rental>();
             foreach (var r in _rentals)
             {
-                if (r.IsOverdue()) result.Add(r);
+                if (r.IsOverdue())
+                {
+                    result.Add(r);
+                }
             }
             return result;
         }

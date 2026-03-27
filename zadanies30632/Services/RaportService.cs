@@ -39,6 +39,7 @@ public class RaportService
 
     public void ShowAvtiveRentalForUser(int userId)
     {
+        Console.WriteLine("---- Aktywne wypożyczenia użytkowniika----");
         foreach (var r in _rentals)
             {
                 if (r.User.Id == userId && r.IsReturned() == false)
@@ -73,11 +74,26 @@ public class RaportService
                 {
                 availableEquipment++;
                 }
-            
-            
-            
         }
 
-        // tutaj Console.WriteLine...
+        foreach (var rent in _rentals)
+        {
+            if (!rent.IsReturned())
+            {
+                activeRentals++;
+            }
+
+            if (rent.IsOverdue())
+            {
+                overdueRentals++;
+            }
+        }
+        
+
+        Console.WriteLine("--- Raport podsumowujacy ---");
+        Console.WriteLine("Sprzet lacznie: " + totalEquipment);
+        Console.WriteLine("Sprzet dostepny: " + availableEquipment);
+        Console.WriteLine("Aktywne wypozyczenia: " + activeRentals);
+        Console.WriteLine("Przeterminowane wypozyczenia: " + overdueRentals);
     }
 }
